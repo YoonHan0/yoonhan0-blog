@@ -20,15 +20,19 @@ const Image = ({ src, ...rest }) => {
     }
   `);
 
-  const match = useMemo(() => data.images.edges.find(({ node }) => src === node.relativePath), [
+  console.log("### 가져온 데이터 확인 ### \n", data);
+  const match = useMemo(() => data.images.edges.find(({ node }) => {
+    console.log("### find 확인 ### \n", src, node.relativePath);
+    return src === node.relativePath
+  }), [
     data,
     src,
   ]);
-
+  console.log("### match 확인 ### \n", match);
   if (!match) return null;
 
   const { node: { childImageSharp, publicURL, extension } = {} } = match;
-
+  console.log("### match 이후 확인 ### \n", childImageSharp, publicURL, extension);
   if (extension === 'svg' || !childImageSharp) {
     return <img src={publicURL} alt={publicURL} {...rest} />;
   }

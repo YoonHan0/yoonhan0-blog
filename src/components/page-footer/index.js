@@ -9,8 +9,8 @@ function PageFooter({ author, githubUrl }) {
         &nbsp;
         <a href={githubUrl}>{author}</a>
         &nbsp;powered by
-        <a href="https://github.com/zoomKoding/zoomkoding-gatsby-blog">
-          &nbsp;zoomkoding-gatsby-blog
+        <a href="https://github.com/YoonHan0/yoonhan0-blog">
+          &nbsp;YoonHan0-blog
         </a>
       </p>
     </footer>

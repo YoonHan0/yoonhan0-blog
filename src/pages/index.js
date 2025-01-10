@@ -9,16 +9,17 @@ import { getUniqueCategories } from '../utils/helpers';
 import PostTabs from '../components/post-tabs';
 
 function HomePage({ data }) {
+  console.log("### src/pages/index.js data ### \n", data);
   const posts = data.allMarkdownRemark.edges.map(({ node }) => new Post(node));
   const { author, language } = data.site.siteMetadata;
-  const categories = ['All', ...getUniqueCategories(posts)];
+  const categories = ['All', ...getUniqueCategories(posts)];                                // main 화면의 카테고리가 담기는 변수
   const featuredTabIndex = categories.findIndex((category) => category === 'featured');
   const [tabIndex, setTabIndex] = useState(featuredTabIndex === -1 ? 0 : featuredTabIndex);
   const onTabIndexChange = useCallback((e, value) => setTabIndex(value), []);
 
   return (
-    <Layout>
-      <Seo title="Home" />
+    <Layout>    {/* 아래 3개의 컴포넌트는 layout/index.js의 children에 해당하는 부분들 */}
+      <Seo title="YoonHan0" />
       <Bio author={author} language={language} />
       <PostTabs
         posts={posts}
@@ -66,6 +67,7 @@ export const pageQuery = graphql`
             github
             linkedIn
             email
+            velog
           }
         }
       }

@@ -14,7 +14,7 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: `gatsby-source-filesystem`,      // markdown 파일을 읽어오는 옵션
       options: {
         name: `content`,
         path: `${__dirname}/content`,
@@ -62,11 +62,11 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-transformer-remark`,
+      resolve: `gatsby-transformer-remark`,     // Markdown Parser 역할을 하는 라이브러리 ( 마크다운 문법 -> HTML 형태 )
       options: {
         plugins: [
           {
-            resolve: `gatsby-remark-images`,
+            resolve: `gatsby-remark-images`,    // 마크다운 문서 내에서의 이미지 사용을 최적화해주는 라이브러리
             options: {
               maxWidth: 720,
               linkImagesToOriginal: false,
